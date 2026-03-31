@@ -55,17 +55,17 @@ module cb_to_axi
 
 `ifndef NO_ASSERTIONS
   `ifndef VERILATOR
-    nox_axi4_arvalid_arready : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |-> axi_mosi_o.arvalid          throughout axi_miso_i.arready[->1]);
-    nox_axi4_arvalid_araddr  : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |-> $stable(axi_mosi_o.araddr)  throughout axi_miso_i.arready[->1]);
-    nox_axi4_arvalid_arlen   : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |-> $stable(axi_mosi_o.arlen)   throughout axi_miso_i.arready[->1]);
-    nox_axi4_arvalid_arsize  : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |-> $stable(axi_mosi_o.arsize)  throughout axi_miso_i.arready[->1]);
-    nox_axi4_arvalid_arburst : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |-> $stable(axi_mosi_o.arburst) throughout axi_miso_i.arready[->1]);
+    nox_axi4_arvalid_arready : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |=> axi_mosi_o.arvalid          throughout axi_miso_i.arready[->1]);
+    nox_axi4_arvalid_araddr  : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |=> $stable(axi_mosi_o.araddr)  throughout axi_miso_i.arready[->1]);
+    nox_axi4_arvalid_arlen   : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |=> $stable(axi_mosi_o.arlen)   throughout axi_miso_i.arready[->1]);
+    nox_axi4_arvalid_arsize  : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |=> $stable(axi_mosi_o.arsize)  throughout axi_miso_i.arready[->1]);
+    nox_axi4_arvalid_arburst : assert property(@(posedge clk) $rose(axi_mosi_o.arvalid) |=> $stable(axi_mosi_o.arburst) throughout axi_miso_i.arready[->1]);
 
-    nox_axi4_awvalid_awready : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |-> axi_mosi_o.awvalid          throughout axi_miso_i.awready[->1]);
-    nox_axi4_awvalid_awaddr  : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |-> $stable(axi_mosi_o.awaddr)  throughout axi_miso_i.awready[->1]);
-    nox_axi4_awvalid_awlen   : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |-> $stable(axi_mosi_o.awlen)   throughout axi_miso_i.awready[->1]);
-    nox_axi4_awvalid_awsize  : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |-> $stable(axi_mosi_o.awsize)  throughout axi_miso_i.awready[->1]);
-    nox_axi4_awvalid_awburst : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |-> $stable(axi_mosi_o.awburst) throughout axi_miso_i.awready[->1]);
+    nox_axi4_awvalid_awready : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |=> axi_mosi_o.awvalid          throughout axi_miso_i.awready[->1]);
+    nox_axi4_awvalid_awaddr  : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |=> $stable(axi_mosi_o.awaddr)  throughout axi_miso_i.awready[->1]);
+    nox_axi4_awvalid_awlen   : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |=> $stable(axi_mosi_o.awlen)   throughout axi_miso_i.awready[->1]);
+    nox_axi4_awvalid_awsize  : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |=> $stable(axi_mosi_o.awsize)  throughout axi_miso_i.awready[->1]);
+    nox_axi4_awvalid_awburst : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |=> $stable(axi_mosi_o.awburst) throughout axi_miso_i.awready[->1]);
 
     nox_axi4_wvalid_wready   : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> axi_mosi_o.wvalid           throughout axi_miso_i.wready[->1]);
     nox_axi4_wvalid_wdata    : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> axi_mosi_o.wdata            throughout axi_miso_i.wready[->1]);
