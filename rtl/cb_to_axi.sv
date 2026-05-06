@@ -68,8 +68,8 @@ module cb_to_axi
     nox_axi4_awvalid_awburst : assert property(@(posedge clk) $rose(axi_mosi_o.awvalid) |=> $stable(axi_mosi_o.awburst) throughout axi_miso_i.awready[->1]);
 
     nox_axi4_wvalid_wready   : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> axi_mosi_o.wvalid           throughout axi_miso_i.wready[->1]);
-    nox_axi4_wvalid_wdata    : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> axi_mosi_o.wdata            throughout axi_miso_i.wready[->1]);
-    nox_axi4_wvalid_wstrb    : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> axi_mosi_o.wstrb            throughout axi_miso_i.wready[->1]);
+    nox_axi4_wvalid_wdata    : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> $stable(axi_mosi_o.wdata)   throughout axi_miso_i.wready[->1]);
+    nox_axi4_wvalid_wstrb    : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> $stable(axi_mosi_o.wstrb)   throughout axi_miso_i.wready[->1]);
     nox_axi4_wvalid_wlast    : assert property(@(posedge clk) $rose(axi_mosi_o.wvalid)  |-> axi_mosi_o.wlast            throughout axi_miso_i.wready[->1]);
 
     nox_axi4_bvalid_bready   : assert property(@(posedge clk) $rose(axi_miso_i.bvalid)  |-> axi_miso_i.bvalid           throughout axi_mosi_o.bready[->1]);
